@@ -1,12 +1,15 @@
-import { useSelector } from "react-redux";
-
+import { useSelector, useDispatch } from "react-redux";
+import { removePosition } from "../store/portfolioReducer";
 function PortfolioTable() {
   const positions = useSelector((state) => state.portfolio);
   const rates = useSelector((state) => state.rates);
-
+  const dispatch = useDispatch();
   const formatNumber = (value) =>
     typeof value === "number" && !isNaN(value) ? value.toFixed(2) : "-";
 
+  const handleRemove = (i) => {
+    dispatch(removePosition(i));
+  };
   return (
     <table>
       <thead>
@@ -39,6 +42,9 @@ function PortfolioTable() {
               <td>{formatNumber(currentValue)}</td>
               <td>
                 {formatNumber(profit)} ({formatNumber(percent)}%)
+              </td>
+              <td>
+                <button onClick={() => handleRemove(i)}>Usuń</button>
               </td>
             </tr>
           );

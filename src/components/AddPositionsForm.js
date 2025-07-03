@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { addPosition } from "../store/portfolioReducer";
 
@@ -31,6 +31,26 @@ const AddPositionForm = () => {
     setDate("");
     setPrice("");
   };
+  useEffect(() => {
+    const fetchHistoricalRate = async () => {
+      if (!date || !currency) return;
+
+      try {
+        const response = await fetch(
+          `https://api.exchangeratesapi.io/v1/${date}?access_key=90e27173df1896dcb85ccf461a486342`
+        );
+        const data = await response.json();
+
+        if (data?.rates && data.rates[currency]) {
+          setPrice(data.rates[currency].toFixed(4));
+        }
+      } catch (e) {
+        console.error("Błąd pobierania kursu historycznego:", e);
+      }
+    };
+
+    fetchHistoricalRate();
+  }, [currency, date]);
 
   return (
     <form onSubmit={handleSubmit}>
@@ -40,7 +60,6 @@ const AddPositionForm = () => {
           <option value="EUR">EUR</option>
           <option value="USD">USD</option>
           <option value="PLN">PLN</option>
-          {/* Dodaj inne waluty, jeśli chcesz */}
         </select>
       </label>
 
