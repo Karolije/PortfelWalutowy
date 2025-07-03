@@ -1,5 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { removePosition } from "../store/portfolioReducer";
+import "./Form.css";
+
 function PortfolioTable() {
   const positions = useSelector((state) => state.portfolio);
   const rates = useSelector((state) => state.rates);
@@ -21,6 +23,7 @@ function PortfolioTable() {
           <th>Obecny kurs</th>
           <th>Obecna wartość</th>
           <th>Zysk/Strata</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>

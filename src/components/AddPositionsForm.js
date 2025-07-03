@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { addPosition } from "../store/portfolioReducer";
+import "./Form.css";
 
 const AddPositionForm = () => {
   const dispatch = useDispatch();
