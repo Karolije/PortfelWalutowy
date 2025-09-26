@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/PortfelWalutowy/static/css/main.900805d8.css",
+    "main.js": "/PortfelWalutowy/static/js/main.9654863d.js",
+    "static/js/453.aba68315.chunk.js": "/PortfelWalutowy/static/js/453.aba68315.chunk.js",
+    "index.html": "/PortfelWalutowy/index.html",
+    "main.900805d8.css.map": "/PortfelWalutowy/static/css/main.900805d8.css.map",
+    "main.9654863d.js.map": "/PortfelWalutowy/static/js/main.9654863d.js.map",
+    "453.aba68315.chunk.js.map": "/PortfelWalutowy/static/js/453.aba68315.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.900805d8.css",
+    "static/js/main.9654863d.js"
+  ]
+}
